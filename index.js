@@ -1,4 +1,5 @@
 'use strict';
+const path = require('path');
 const Pixiv = require('pixiv.js');
 const pixivImg = require('pixiv-img');
 const co = require('co');
@@ -6,7 +7,6 @@ const ora = require('ora');
 const chalk = require('chalk');
 const length = require('multibyte-length');
 const substr = require('multibyte-substr');
-const path = require('path');
 const prettyMs = require('pretty-ms-ja');
 
 const spinner = ora({color: 'red'});
