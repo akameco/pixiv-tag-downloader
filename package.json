@@ -1,0 +1,48 @@
+{
+  "name": "pixiv-tag-downloader",
+  "version": "0.0.0",
+  "description": "pixiv downloader for tag",
+  "license": "MIT",
+  "repository": "akameco/pixiv-tag-downloader",
+  "author": {
+    "name": "akameco",
+    "email": "akameco.t@gmail.com",
+    "url": "akameco.github.io"
+  },
+  "bin": "cli.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "keywords": [
+    "cli-app",
+    "cli",
+    "pixiv",
+    "img",
+    "download",
+    "tag",
+    "pixiv.js",
+    "pixiv-img"
+  ],
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "co": "^4.6.0",
+    "meow": "^3.7.0",
+    "multibyte-length": "^0.1.0",
+    "multibyte-substr": "^0.1.0",
+    "ora": "^0.2.1",
+    "pixiv-img": "^0.3.1",
+    "pixiv.js": "^0.11.0",
+    "pretty-ms-ja": "^0.1.0"
+  },
+  "devDependencies": {
+    "ava": "^0.14.0",
+    "xo": "^0.13.0"
+  }
+}
