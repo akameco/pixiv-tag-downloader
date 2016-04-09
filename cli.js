@@ -29,7 +29,7 @@ var cli = meow([
 		r18: 'r'
 	},
 	default: {
-		output: __dirname,
+		output: process.cwd(),
 		wait: 5,
 		r18: false,
 		manga: false
