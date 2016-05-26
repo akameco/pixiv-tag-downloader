@@ -42,7 +42,7 @@
     "pretty-ms-ja": "^0.1.0"
   },
   "devDependencies": {
-    "ava": "^0.14.0",
+    "ava": "^0.15.1",
     "xo": "^0.15.0"
   }
 }
