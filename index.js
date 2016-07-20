@@ -20,7 +20,7 @@ module.exports = (tag, opts) => {
 	});
 };
 
-function *main(tag, opts) {
+function * main(tag, opts) {
 	const pixiv = new Pixiv(opts.username, opts.password);
 
 	for (let page = 1, next, c = 0, total; next !== null; ++page) {
@@ -65,7 +65,7 @@ function *main(tag, opts) {
 	}
 }
 
-function *downloadImg(work, opts) {
+function * downloadImg(work, opts) {
 	try {
 		if (work.is_manga && work.metadata && work.metadata.pages) {
 			for (const page of work.metadata.pages) {
@@ -77,7 +77,7 @@ function *downloadImg(work, opts) {
 			const imgUrl = work.image_urls.large;
 			yield pixivImg(imgUrl, path.resolve(opts.o, path.basename(imgUrl)));
 		}
-	} catch (e) {
+	} catch (err) {
 		// エラーが起きてもスキップ
 		console.log('\nskip', work.id);
 	}
