@@ -36,7 +36,7 @@
     "meow": "^3.7.0",
     "multibyte-length": "^0.1.1",
     "multibyte-substr": "^0.1.1",
-    "ora": "^0.2.3",
+    "ora": "^0.3.0",
     "pixiv-img": "^0.3.1",
     "pixiv.js": "^0.13.0",
     "pretty-ms-ja": "^0.1.0"
