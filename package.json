@@ -38,7 +38,7 @@
     "multibyte-substr": "^0.1.1",
     "ora": "^0.2.3",
     "pixiv-img": "^0.3.1",
-    "pixiv.js": "^0.13.0",
+    "pixiv.js": "^0.17.0",
     "pretty-ms-ja": "^0.1.0"
   },
   "devDependencies": {
