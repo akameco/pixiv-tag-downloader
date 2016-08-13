@@ -1,7 +1,7 @@
 {
   "name": "pixiv-tag-downloader",
   "version": "0.2.1",
-  "description": "pixiv downloader for tag",
+  "description": "pixiv tag downloader",
   "license": "MIT",
   "repository": "akameco/pixiv-tag-downloader",
   "author": {
