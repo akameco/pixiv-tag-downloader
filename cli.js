@@ -2,25 +2,28 @@
 'use strict';
 const meow = require('meow');
 const updateNotifier = require('update-notifier');
+const Conf = require('conf');
 const pixivTagDownloader = require('./');
 
-const cli = meow([
-	'Usage',
-	'  $ pixiv-tag-downloader [input]',
-	'',
-	'Options',
-	'  --uername, -u   pixiv username',
-	'  --password, -p  pixiv password',
-	'  --output, -o    output path  [Default: current directory]',
-	'  --wait, -w      interval time  [Default: 5]',
-	'  --favorite, -f  filter favorite count',
-	'  --r18, -r       include R18?  [Default: false]',
-	'  --manga, -m     include manga?  [Default: false]',
-	'',
-	'Examples',
-	'  $ pixiv-tag-downloader 艦これ1000ユーザ入り -u username -p password',
-	'  $ pixiv-tag-downloader エレン・ベーカー -u username -p password --r18 --manga -f 1000'
-], {
+const config = new Conf();
+
+const cli = meow(`
+Usage
+  $ pixiv-tag-downloader [input]
+
+Options
+  --uername, -u   pixiv username (use cache)
+  --password, -p  pixiv password (use cache)
+  --output, -o    output path (create directory)  [Default: current directory]
+  --wait, -w      interval time  [Default: 5]
+  --favorite, -f  filter favorite count
+  --r18, -r       include R18?  [Default: false]
+  --manga, -m     include manga?  [Default: false]
+
+Examples
+  $ pixiv-tag-downloader 艦これ1000ユーザ入り -u username -p password
+  $ pixiv-tag-downloader 嫁セイバー -r -f 1000 -o 嫁セイバー
+`, {
 	alias: {
 		username: 'u',
 		password: 'p',
@@ -39,4 +42,24 @@ const cli = meow([
 
 updateNotifier({pkg: cli.pkg}).notify();
 
-pixivTagDownloader(cli.input[0], cli.flags);
+const opts = cli.flags;
+
+if (!cli.input[0]) {
+	console.log('require tag word');
+	process.exit(1);
+}
+
+if (opts && opts.username && opts.password) {
+	pixivTagDownloader(cli.input[0], cli.flags);
+	config.set('username', opts.username);
+	config.set('password', opts.password);
+} else {
+	if (!config.has('username') || !config.has('password')) {
+		console.log('require username && password');
+		process.exit(1);
+	}
+
+	opts.username = config.get('username');
+	opts.password = config.get('password');
+	pixivTagDownloader(cli.input[0], opts);
+}

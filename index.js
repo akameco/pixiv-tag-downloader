@@ -8,11 +8,15 @@ const chalk = require('chalk');
 const length = require('multibyte-length');
 const substr = require('multibyte-substr');
 const prettyMs = require('pretty-ms-ja');
+const mkdirp = require('mkdirp');
 
 const spinner = ora({color: 'red'});
 
 module.exports = (tag, opts) => {
 	opts = Object.assign({wait: 5, r18: false, manga: false}, opts);
+	if (opts.output) {
+		mkdirp.sync(opts.output);
+	}
 	spinner.start();
 	co(main(tag, opts)).then(() => {
 		spinner.stop();
