@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 'use strict';
-var meow = require('meow');
-var updateNotifier = require('update-notifier');
-var pixivTagDownloader = require('./');
+const meow = require('meow');
+const updateNotifier = require('update-notifier');
+const pixivTagDownloader = require('./');
 
-var cli = meow([
+const cli = meow([
 	'Usage',
 	'  $ pixiv-tag-downloader [input]',
 	'',
