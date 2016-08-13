@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 var meow = require('meow');
+var updateNotifier = require('update-notifier');
 var pixivTagDownloader = require('./');
 
 var cli = meow([
@@ -35,5 +36,7 @@ var cli = meow([
 		manga: false
 	}
 });
+
+updateNotifier({pkg: cli.pkg}).notify();
 
 pixivTagDownloader(cli.input[0], cli.flags);
