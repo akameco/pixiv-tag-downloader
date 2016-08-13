@@ -22,17 +22,16 @@ $ npm install --global pixiv-tag-downloader
 ## CLI
 
 ```
-$ pixiv-tag-downloader --help
 
-  pixiv downloader for tag
+  pixiv tag downloader
 
   Usage
     $ pixiv-tag-downloader [input]
 
   Options
-    --uername, -u   pixiv username
-    --password, -p  pixiv password
-    --output, -o    output path  [Default: current directory]
+    --uername, -u   pixiv username (use cache)
+    --password, -p  pixiv password (use cache)
+    --output, -o    output path (create directory)  [Default: current directory]
     --wait, -w      interval time  [Default: 5]
     --favorite, -f  filter favorite count
     --r18, -r       include R18?  [Default: false]
@@ -40,7 +39,7 @@ $ pixiv-tag-downloader --help
 
   Examples
     $ pixiv-tag-downloader 艦これ1000ユーザ入り -u username -p password
-    $ pixiv-tag-downloader エレン・ベーカー -u username -p password --r18 --manga -f 1000
+    $ pixiv-tag-downloader 嫁セイバー -r -f 1000 -o 嫁セイバー
 ```
 
 
