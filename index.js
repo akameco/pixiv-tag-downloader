@@ -25,7 +25,7 @@ module.exports = (tag, opts) => {
 };
 
 function * main(tag, opts) {
-	const pixiv = new Pixiv(opts.username, opts.password);
+	const pixiv = new Pixiv(opts.username.toString(), opts.password.toString());
 
 	for (let page = 1, next, c = 0, total; next !== null; ++page) {
 		const res = yield pixiv.search(tag, {
@@ -71,9 +71,9 @@ function * main(tag, opts) {
 
 function * downloadImg(work, opts) {
 	try {
-		if (work.is_manga && work.metadata && work.metadata.pages) {
-			for (const page of work.metadata.pages) {
-				const imgUrl = page.image_urls.large;
+		if (work.is_manga) {
+			for (let c = 0; c < work.page_count; ++c) {
+				const imgUrl = work.image_urls.large.replace(/p0/, `p${c}`);
 				yield pixivImg(imgUrl, path.resolve(opts.o, path.basename(imgUrl)));
 				yield wait(opts.wait);
 			}
