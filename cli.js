@@ -30,7 +30,8 @@ Examples
 		favorite: 'f',
 		output: 'o',
 		wait: 'w',
-		r18: 'r'
+		r18: 'r',
+		manga: 'm'
 	},
 	default: {
 		output: process.cwd(),
