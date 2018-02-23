@@ -1,5 +1,7 @@
 # pixiv-tag-downloader [![Build Status](https://travis-ci.org/akameco/pixiv-tag-downloader.svg?branch=master)](https://travis-ci.org/akameco/pixiv-tag-downloader)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/akameco/pixiv-tag-downloader.svg)](https://greenkeeper.io/)
+
 > タグ検索に特化したpixivの画像ダウンローダー
 
 ## 特徴
